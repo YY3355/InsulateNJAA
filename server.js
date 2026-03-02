@@ -17,11 +17,7 @@ const supabase = createClient(
 // ─── Middleware ───────────────────────────────────────────────────────────────
 app.use(helmet());
 app.use(express.json());
-app.use(cors({
-  origin: (process.env.ALLOWED_ORIGINS || '*').split(','),
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Widget-Key'],
-}));
+app.use(cors());
 
 // Rate limiting
 const apiLimiter = rateLimit({
